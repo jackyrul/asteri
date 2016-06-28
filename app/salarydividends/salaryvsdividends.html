@@ -1,0 +1,165 @@
+<div id="calcul" class="container content-md g-text-height-md" ng-controller="salaryvsdividends as salaryvsdividends">
+    <div class="row text-center g-heading-v7">
+        <div class="col-sm-8 col-sm-offset-2">
+            <!--<h2 class="h2">-->
+            <!--<span class="g-text-height-lg" translate="calculator"></span>-->
+            <!--</h2>-->
+            <div>
+                <form action="">
+                    <h2 style="padding-bottom: 0;padding-top: 40px;" translate="salarydividcalc"></h2>
+                    <!--<br>-->
+                    <!--<a class="btn-menu  dark-blue" ng-class="{'activecalc': calcType=='manual'}" ng-click="newValue('manual')">Salary Calculator</a>-->
+                    <!--<a class="btn-menu  dark-blue" ng-class="{'activecalc': calcType=='auto'}" ng-click="newValue('auto')">Salary vs Dividends Calculator</a>-->
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="calculator" class="bg-color-white">
+        <div class="container text-center " >
+            <h2 class="g-text-size-17 g-mb-10">Tax Calculator {{date | date:'yyyy'}}/{{date2 | date:'yyyy'}}*</h2>
+<div class="dyn_group">
+    <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+        <div class="inp_group">
+            <h4>
+                Please, enter Total Income:<sapn class="pound">£</sapn>
+            </h4>
+        </div>
+
+        <input type="text" class="form-control main_inputs" ng-model="auto.totalIncome" value="{{auto.totalIncome | number}}" >
+    </div>
+    <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+        <div class="inp_group">
+            <h4 class="longtxt"><span>Enter your tax code for</span>
+                <span> {{date | date:'yyyy'}}/{{date2 | date:'yyyy'}}:</span></h4>
+        </div>
+        <input type="text" class="form-control main_inputs" ng-model="auto.taxCode" id="TaxCode2" placeholder="Tax Code">
+
+    </div>
+
+
+    <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+        <div class="inp_group">
+            <h4 class="longtxt"><span>Do you want to apply &#163; 3000 of your</span>
+                <span> Employer's allowance?</span>
+            </h4>
+        </div>
+        <input type="checkbox" class="main_inputs_check" ng-model="auto.is3000Pounds">
+
+    </div>
+
+    <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+        <div class="inp_group">
+            <h4><span>Do you want to add Corporation tax?</span></h4>
+        </div>
+        <input type="checkbox" class="main_inputs_check" ng-model="auto.isCorporationTax">
+
+    </div>
+</div>
+<div class="row text-center g-heading-v7">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div>
+            <form action="">
+                <a class="btn-active  dark-blue"  ng-click="showResult()">Calculate<br>
+                    <span>Salary vs Dividends Proportion</span>
+                </a>
+
+            </form>
+        </div>
+    </div>
+</div>
+<form class="g-mb-20" action="" ng-show="isShowResultSalaryvsDevid">
+    <div class="form-group row">
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon bold">Your optimal Salary vs Dividends proportion:</div>
+            <!--<input type="text" class="form-control subscribe-block-v1__form" ng-model="auto.salary" value="{{auto.salary | number:0}}" readonly id="Salary2" placeholder="Enter Salary" >-->
+            <div class="input-group-addon subscribe-block-v1__addon">
+
+            </div>
+        </div>
+
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon">Salary</div>
+            <input type="text" class="form-control subscribe-block-v1__form" ng-model="auto.salary" value="{{auto.salary | number:0}}" readonly id="Salary2" placeholder="Enter Salary" >
+            <div class="input-group-addon subscribe-block-v1__addon">
+                <!--<i class="fa fa-gbp"></i>-->
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon" style="border-top-left-radius: 10px;">Dividends</div>
+            <input type="text" class="form-control subscribe-block-v1__form" ng-model="auto.dividends" value="{{auto.dividends | number:0}}" readonly id="Dividends2" placeholder="Enter Dividends" >
+            <div class="input-group-addon subscribe-block-v1__addon" style="border-top-right-radius: 10px;">
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon bold">Individual taxes:</div>
+            <!--<input type="text" class="form-control subscribe-block-v1__form" ng-model="auto.salary" value="{{auto.salary | number:0}}" readonly id="Salary2" placeholder="Enter Salary" >-->
+            <div class="input-group-addon subscribe-block-v1__addon">
+
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon">Income tax</div>
+            <input type="text" class="form-control subscribe-block-v1__form" ng-model="incomeTax" readonly id="Incometax2" value="{{incomeTax | number :0}}">
+            <div class="input-group-addon subscribe-block-v1__addon">
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon">NIC Employee's</div>
+            <input type="text" class="form-control subscribe-block-v1__form" ng-model="employeeNic" readonly id="NICEmployee2" value="{{employeeNic | number :0}}">
+            <div class="input-group-addon subscribe-block-v1__addon">
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon">Dividend Tax</div>
+            <input type="text" class="form-control subscribe-block-v1__form" ng-model="devidentTax" readonly id="DividendTax2" value="{{devidentTax | number :0}}">
+            <div class="input-group-addon subscribe-block-v1__addon">
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon bold">Total individual taxes</div>
+            <input type="text" class="form-control subscribe-block-v1__form total" ng-model="totalIndividualTax" readonly id="Totalindividualtaxes2" value="{{totalIndividualTax | number :0}}">
+            <div class="input-group-addon subscribe-block-v1__addon">
+                <!--<i class="fa fa-gbp"></i>-->
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon bold">Company's Taxes:</div>
+            <!--<input type="text" class="form-control subscribe-block-v1__form" ng-model="auto.salary" value="{{auto.salary | number:0}}" readonly id="Salary2" placeholder="Enter Salary" >-->
+            <div class="input-group-addon subscribe-block-v1__addon">
+
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon">NIC Employer's</div>
+            <input type="text" class="form-control subscribe-block-v1__form" ng-model="nicEmployerTotal" readonly id="NICEmployer2" value="{{nicEmployerTotal | number :0}}">
+            <div class="input-group-addon subscribe-block-v1__addon">
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon">Corporation tax for dividends taken</div>
+            <input type="text" class="form-control subscribe-block-v1__form" ng-model="corporationTaxTotal" readonly id="CorpTaxDividents2" value="{{corporationTaxTotal | number :0}}">
+            <div class="input-group-addon subscribe-block-v1__addon">
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon bold">Total Company's Taxes</div>
+            <input type="text" class="form-control subscribe-block-v1__form total" ng-model="totalCompanyTaxes" readonly id="TotalCompanyTaxes2" value="{{totalCompanyTaxes | number :0}}">
+            <div class="input-group-addon subscribe-block-v1__addon">
+                <!--<i class="fa fa-gbp"></i>-->
+            </div>
+        </div>
+        <div class="input-group col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 subscribe-block-v1">
+            <div class="input-group-addon bold" >TOTAL TAXES</div>
+            <input type="text" class="form-control subscribe-block-v1__form total" ng-model="totalTaxes" readonly id="Totaltaxes2" value="{{totalTaxes | number :0}}">
+            <div class="input-group-addon subscribe-block-v1__addon">
+                <!--<i class="fa fa-gbp"></i>-->
+            </div>
+        </div>
+    </div>
+</form>
+
+        </div>
+    </div>
+
+    <p>*This calculator is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and no infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the calculator or the use or other dealings in the calculator.</p>
+</div>

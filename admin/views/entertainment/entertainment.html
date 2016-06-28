@@ -1,0 +1,56 @@
+﻿<div ng-controller="entertainment as vm">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Досуг</h5><button class="btn btn-sm btn-primary pull-right" ng-click="add()" type="submit">Добавить новый элеменет</button>
+                    <div class="ibox-content">
+                        <form class="form-horizontal ng-pristine ng-valid">
+                            <div class="form-group" ng-repeat-start="item in main.entertainment">
+                                <label class="col-lg-2 control-label">Картинка</label>
+
+                                <div class="col-lg-4"><input type="text"  ng-model="item.src" placeholder="введите ссылка на картинку" class="form-control  m-b"></div>
+
+                                <label class="col-lg-2 control-label">Название</label>
+
+                                <div class="col-lg-4"><input type="text" ng-model="item.name" placeholder="введите название" class="form-control m-b"></div>
+
+                                <label class="col-lg-2 control-label">Сайт</label>
+
+                                <div class="col-lg-4">
+                                    <input type="text"  ng-model="item.link" placeholder="введите  ссылку на сайт" class="form-control  m-b">
+
+                                </div>
+
+                                <label class="col-lg-2 control-label">Текст</label>
+
+                                <div class="col-lg-4">
+                                    <input type="text"  ng-model="item.text" placeholder="введите  текст" class="form-control  m-b">
+
+                                </div>
+
+                                <label class="col-lg-2 control-label">Удалить элемент</label>
+
+                                <div class="col-lg-4">
+                                    <button class="btn btn-sm btn-warning" ng-click="delete($index)" type="submit">Удалить</button>
+                                </div>
+
+                            </div>
+                            <div ng-repeat-end class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button class="btn btn-sm btn-primary" ng-click="save()" type="submit">Сохранить Все</button>
+                                    <button class="btn btn-sm btn-default" type="submit" ng-click="cancel()">Отменить Все</button>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

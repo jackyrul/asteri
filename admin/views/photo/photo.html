@@ -1,0 +1,104 @@
+﻿<div ng-controller="photo as vm">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Фото</h5><button class="btn btn-sm btn-primary pull-right" ng-click="add()" type="submit">Добавить новый элеменет</button>
+                    <div class="ibox-content">
+                        <form class="form-horizontal ng-pristine ng-valid">
+                            <div class="form-group" ng-repeat-start="photo in main.photos">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <span class="photoindex">{{$index+1}}. </span>
+                                        <img class="imglook" src="{{photo.srcview ? photo.srcview : '/images/portfolio/10.jpg'}}">
+                                        <span style="float: left;">
+                                            <div>
+                                                <button ng-click="up($index)" style="margin: 10px" class="btn btn-info btn-circle">
+                                                    <i class="fa fa-arrow-up"></i>
+                                                </button>
+                                            </div>
+                                        <div>
+                                            <button ng-click="down($index)" style="margin: 10px" class="btn btn-info btn-circle">
+                                                <i class="fa fa-arrow-down"></i>
+                                            </button>
+                                        </div>
+                                        </span>
+
+
+
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="row">
+                                            <label class="col-lg-2 control-label">Картинка</label>
+
+                                            <div class="col-lg-4">
+                                                <input type="text" ng-change="UpdateSrc()" ng-model="photo.src"  placeholder="введите ссылка на картинку" class="form-control">
+                                            </div>
+
+                                            <label class="col-lg-2 control-label">Группа</label>
+
+                                            <div class="col-lg-4">
+                                                <select name="singleSelect" ng-model="photo.group" class="form-control m-b">
+                                                    <option ng-repeat="group in groups">{{group.prop}}</option>
+                                                </select>
+                                            </div>
+                                            <label class="col-lg-2 control-label">Название</label>
+
+                                            <div class="col-lg-4"><input type="text" ng-model="photo.name" placeholder="введите название к картинке" class="form-control"></div>
+
+                                            <label class="col-lg-2 control-label">Удалить элемент</label>
+
+                                            <div class="col-lg-4">
+                                                <button class="btn btn-sm btn-warning" ng-click="delete($index)" type="submit">Удалить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            <div ng-repeat-end class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button class="btn btn-sm btn-primary" ng-click="save()" type="submit">Сохранить Все</button>
+                                    <button class="btn btn-sm btn-default" type="submit" ng-click="cancel()">Отменить Все</button>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--<div class="portfolio-items">-->
+    <!--<div masonry masonry-options="{ transitionDuration: '0.1s',  gutter: 20 }">-->
+        <!--<div class="masonry-brick" ng-repeat="photo in photos | pagination:(photosPage-1)*12 | limitTo:12 | filter: {group: group}" >-->
+            <!--<div class="portfolio-item branded logos" width="260">-->
+                <!--<div class="portfolio-wrapper">-->
+                    <!--<div class="portfolio-single">-->
+                        <!--<div class="portfolio-thumb">-->
+                            <!--<img ng-src="{{ photo.src }}" class="img-responsive" width="260" alt="">-->
+                        <!--</div>-->
+                        <!--<div class="portfolio-view">-->
+                            <!--<ul class="nav nav-pills">-->
+                                <!--<li><a href="{{ photo.src }}" data-lightbox="example-set"><i style="margin-top: 10px;" class="fa fa-eye fa-4x"></i></a></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="portfolio-info ">-->
+                        <!--<h2>{{ photo.group }}</h2>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+
+</div>
+

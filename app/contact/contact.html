@@ -1,0 +1,76 @@
+<div ng-controller="contact as contact">
+  <section id="contact-info">
+    <div class="center">
+      <h2>{{master.title}}</h2>
+      <p class="lead">{{master.text}}</p>
+    </div>
+    <div class="gmap-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5 text-center">
+            <div class="gmap">
+              <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                      src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=ru&amp;geocode=&amp;q=Чубаря,10,Бердянск&amp;aq=0&amp;oq=Asteri&amp;sll=46.729905, 36.818156&amp;sspn=46.729905, 36.818156&amp;ie=UTF8&amp;hq=Asteri,&amp;hnear=Чубаря,10,Бердянск&amp;ll=46.729905, 36.818156&amp;spn=0.016515,0.019452&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+
+            </div>
+          </div>
+
+          <div class="col-sm-7 map-content">
+            <ul class="row">
+              <li class="col-sm-6">
+                <address>
+                  <h5>Телефоны:</h5>
+
+                  <p>{{master.tel1}} <br>
+                     {{master.tel2}} </p>
+                </address>
+
+                <!--<address>-->
+                  <!--<h5>Zonal Office</h5>-->
+                  <!--<p>1537 Flint Street <br>-->
+                     <!--Tumon, MP 96911</p>-->
+                  <!--<p>Phone:670-898-2847 <br>-->
+                     <!--Email Address:info@domain.com</p>-->
+                <!--</address>-->
+              </li>
+
+
+              <li class="col-sm-6">
+                <address>
+                  <h5>Адрес</h5>
+                  <p>{{master.addr}} <br>
+                     Бердянск</p>
+                </address>
+
+                <!--<address>-->
+                  <!--<h5>Zone#3 Office</h5>-->
+                  <!--<p>1537 Flint Street <br>-->
+                     <!--Tumon, MP 96911</p>-->
+                  <!--<p>Phone:670-898-2847 <br>-->
+                     <!--Email Address:info@domain.com</p>-->
+                <!--</address>-->
+              </li>
+              <li class="col-sm-12">
+                <address>
+                 <br>
+                  <p>{{master.contacttext}}</p>
+                </address>
+
+                <!--<address>-->
+                <!--<h5>Zone#3 Office</h5>-->
+                <!--<p>1537 Flint Street <br>-->
+                <!--Tumon, MP 96911</p>-->
+                <!--<p>Phone:670-898-2847 <br>-->
+                <!--Email Address:info@domain.com</p>-->
+                <!--</address>-->
+              </li>
+            </ul>
+            <!--<div> <h5>{{master.contacttext}}</h5></div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!--/gmap_area -->
+
+
+</div>

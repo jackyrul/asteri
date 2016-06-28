@@ -1,0 +1,51 @@
+<div ng-controller="rooms as rooms">
+ <section id="about-us">
+  <div class="container">
+
+ <div class="team" ng-hide="master.isRoom">
+  <div class="center wow fadeInDown">
+   <h2>{{master.title}}</h2>
+   <p class="lead">Наши номера под любоого отдыхающего!</p>
+  </div>
+
+  <div class="row clearfix">
+
+   <div class="col-md-6 col-sm-6 " data-ng-repeat="room in master.rooms">
+    <div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+     <div class="media">
+      <div class="pull-right">
+       <ul class="tag clearfix">
+        <li class="btn details"><a ng-click="details($index)" href="">Подробнее</a></li>
+       </ul>
+       <h2 class="prize">Цена / за ночь:</h2>
+       <h2 class="prise">$250</h2>
+       <p></p>
+      </div>
+      <div class="media-body">
+       <h4>СуперЛюкс-стандарт</h4>
+      </div>
+      <div class="pull-left">
+       <a href="#"><img class="media-object" src="images/man1.jpg" alt=""></a>
+      </div>
+
+
+      <div class="media-body">
+       <ul class="app_icons">
+        <li><a href=""><i class="fa fa-wifi"></i></i></a></li>
+        <li><a href=""><i class="fa fa-beer"></i></a></li>
+        <li><a href=""><i class="fa fa-bed"></i></a></li>
+       </ul>
+      </div>
+     </div><!--/.media -->
+     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+    </div>
+   </div><!--/.col-lg-4 -->
+
+  </div> <!--/.row -->
+ </div><!--section-->
+
+   <div ng-show="master.isRoom" ng-include="'app/rooms/room.html'"></div>
+
+  </div>
+  </section>
+ </div>

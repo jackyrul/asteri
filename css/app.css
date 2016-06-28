@@ -1,0 +1,225 @@
+.request h4:after {
+    right: 17px;
+}
+
+
+.request h4:before {
+    left: 17px;
+}
+
+#feature .request {
+    bottom: -55px;
+    left: 50%;
+    position: absolute;
+    margin-left: -110px;
+}
+
+address{
+    font-size: x-large;
+}
+address h5{
+    font-size: x-large;
+}
+
+.gmap {
+     border-radius: 0;
+
+}
+
+.maintxt{
+    text-align: justify;
+}
+
+.mainf h2 {
+    margin-top: 38px;
+    font-size: 22px;
+}
+
+.single-profile-top, .single-profile-bottom {
+    margin: 10px;
+}
+
+ul.app_icons,
+ul.tag {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: block;
+}
+
+ul.app_icons li,
+ul.tag li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.app_icons i{
+    /*background: #D34836;*/
+}
+
+
+ul.app_icons li a i {
+    border-radius: 50%;
+    color: #000000;
+    height: 25px;
+    line-height: 25px;
+    font-size: 22px;
+    padding: 0;
+    text-align: center;
+    width: 25px;
+    opacity: .8;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #000;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #e6e6e6;
+}
+
+.details {
+    font-size: 20px!important;
+    font-weight: 500!important;
+}
+
+.prize{
+    font-size: 14px;
+}
+
+.prise{
+    margin: 0;
+}
+
+.about-us2 {
+    margin-top: 110px;
+    margin-bottom: -110px;
+}
+
+.about-us2 h2,
+.skill_text h2 {
+    color:#4e4e4e;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.about-us2 p {
+    color:#4e4e4e;
+}
+
+#carousel-slider2 .carousel-indicators {
+    bottom: -25px;
+}
+
+#carousel-slider2 .carousel-indicators li {
+    border:0;
+}
+
+#carousel-slider2 a i {
+    border: 1px solid #777;
+    border-radius:50%;
+    font-size: 28px;
+    height: 50px;
+    padding: 8px;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    color:#000;
+}
+
+#carousel-slider2 a i:hover {
+    background:#bfbfbf;
+    color:#fff;
+    border: 1px solid #bfbfbf;
+}
+
+#carousel-slider2
+.carousel-control {
+    width:inherit;
+}
+
+#carousel-slider2 .carousel-control.left i {
+    left:-25px
+}
+
+#carousel-slider2 .carousel-control.right i {
+    right: -25px;
+}
+
+#carousel-slider2
+.carousel-control.left,
+#carousel-slider2
+.carousel-control.right {
+    background: none;
+}
+
+
+.center2 {
+    text-align: center;
+    font-size: 36px;
+}
+
+
+
+.team .btn {
+    background: transparent;
+    font-size: 16px;
+     font-weight: 500;
+     margin-bottom: 0px;
+     padding: 4px 12px;
+    text-transform: uppercase;
+    border: 1px solid#ddd;
+    margin-right: 3px;
+}
+
+
+/* start 'enter' transition */
+.uiview.ng-enter {
+     /* transition on enter for .5s */
+     transition: 1.1s;
+
+     /* start with opacity 0 (invisible) */
+     opacity: 0;
+ }
+
+/* end 'enter' transition */
+.uiview.ng-enter-active {
+     /* end with opacity 1 (fade in) */
+     opacity: 1;
+ }
+
+.categories h2 {
+    margin-bottom: 20px;
+}
+
+.list-inline>li {
+    cursor: pointer;
+}
+
+/*.list-inline .selected >img {*/
+    /*opacity: 0.75;*/
+/*}*/
+
+.facilities_icons li{
+    font-size: 18px;
+    line-height: 2;
+    padding-left: 2px;
+    margin-left: -20px;
+}
+.facilities_icons i{
+    color: black;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.smallslider{
+    margin-top: 10px;
+    margin-left: -15px;
+}
+.logo{
+    width: 80%;
+}
+
+
+
+
