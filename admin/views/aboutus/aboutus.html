@@ -5,27 +5,96 @@
                 <div class="ibox-title">
                     <h5>О Нас</h5>
                 <div class="ibox-content">
-                    <form class="form-horizontal ng-pristine ng-valid">
+                    <div class="form-horizontal ng-pristine ng-valid">
 
-                        <div class="form-group"><label class="col-lg-2 control-label">Главная картинка</label>
+                        <!--<div class="form-group"><label class="col-lg-2 control-label">Главная картинка</label>-->
 
-                            <div class="col-lg-10"><input type="text" ng-model="main.about.mainimg" placeholder="введите ссылка на картинку" class="form-control">
-                                <!--<span class="help-block m-b-none">Example block-level help text here.</span>-->
-                            </div>
-                        </div>
-                        <div class="form-group"><label class="col-lg-2 control-label">Картинка к тексту</label>
+                            <!--<div class="col-lg-10"><input type="text" ng-model="main.about.mainimg" placeholder="введите ссылка на картинку" class="form-control">-->
+                                <!--&lt;!&ndash;<span class="help-block m-b-none">Example block-level help text here.</span>&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group"><label class="col-lg-2 control-label">Картинка к тексту</label>-->
 
-                            <div class="col-lg-10"><input type="text" ng-model="main.about.textimg" placeholder="введите ссылка на картинку" class="form-control">
-                            </div>
-                        </div>
+                            <!--<div class="col-lg-10"><input type="text" ng-model="main.about.textimg" placeholder="введите ссылка на картинку" class="form-control">-->
+                            <!--</div>-->
+                        <!--</div>-->
                         <div class="form-group"><label class="col-lg-2 control-label">Главный текст:</label>
 
                             <!--<div summernote class="summernote"  ng-model="main.about.maintext">-->
                             <div class="col-lg-10">
-                            <textarea id="TextArea" style="width: 80%;padding:10px;height:auto;-webkit-transition: height 2s ease;-moz-transition: height 2s ease;-ms-transition: height 2s ease;-o-transition: height 2s ease;
+                            <textarea id="TextArea" style="width: 100%;padding:10px;height:auto;-webkit-transition: height 2s ease;-moz-transition: height 2s ease;-ms-transition: height 2s ease;-o-transition: height 2s ease;
 transition: height 2s ease;" ng-keyup="autoExpand($event)" ng-model="main.about.maintext"></textarea>
                             </div>
                             </div>
+
+
+                            <div class="form-group" ng-repeat-start="photo in main.about.photos">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <span class="photoindex">{{$index+1}}. </span>
+                                        <!--? photo.src : '/images/portfolio/10.jpg'-->
+                                        <img class="imglook" src="{{photo.src }}">
+                                        <!--<span style="float: left;">-->
+                                            <!--<div>-->
+                                                <!--<button ng-click="up($index)" style="margin: 10px" class="btn btn-info btn-circle">-->
+                                                    <!--<i class="fa fa-arrow-up"></i>-->
+                                                <!--</button>-->
+                                            <!--</div>-->
+                                        <!--<div>-->
+                                            <!--<button ng-click="down($index)" style="margin: 10px" class="btn btn-info btn-circle">-->
+                                                <!--<i class="fa fa-arrow-down"></i>-->
+                                            <!--</button>-->
+                                        <!--</div>-->
+                                        </span>
+
+
+
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <!--<form action="#" >-->
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <!--<label class="col-lg-4 control-label">Картинка</label>-->
+
+                                                <!--<div class="col-lg-8">-->
+                                                    <!--<input type="text" name="srcimg" ng-change="UpdateSrc()" ng-model="photo.src"  placeholder="введите ссылка на картинку" class="form-control">-->
+                                                <!--</div>-->
+
+                                                <!--<label class="col-lg-4 control-label">Сохранить/Заменить картинку</label>-->
+
+                                                <div class="col-lg-8">
+                                                    <button style="margin-top: 10px;" ng-click="uploadImg($index, photo.src)" class="btn btn-sm btn-primary">Сохранить/Заменить</button>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-lg-6">
+                                                <!--<button type="file" ngf-select="uploadFiles($file, $invalidFiles)"-->
+                                                        <!--accept="image/*" ngf-max-height="10000" ngf-max-size="2MB">-->
+                                                    <!--Select Filexxcx</button>-->
+
+                                                <!--<button type="file" ngf-select="uploadImg($index, photo.src, $file)"-->
+                                                        <!--accept="image/*" ngf-max-height="1000" ngf-max-size="2MB">-->
+                                                    <!--Select File</button>-->
+                                                <div class="dropzone ng-pristine ng-valid dz-clickable" dropzone="dropzoneConfig" id="{{'dropzone'+$index}}">
+                                                    <div class="dz-message m-t-lg m-b-lg">
+                                                        <h1 class="dz-message m-t-lg m-b-lg">Переместите фото или нажмите для добавления</h1>
+                                                        <!--<span>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!--</form>-->
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div ng-repeat-end class="hr-line-dashed"></div>
+
+
 
 
 
@@ -36,7 +105,7 @@ transition: height 2s ease;" ng-keyup="autoExpand($event)" ng-model="main.about.
                             </div>
 
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

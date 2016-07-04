@@ -9,5 +9,5 @@ session_start();
 session_destroy();
 ?>
 <script>
-    window.location.replace("http://berdyansk.esy.es/#/admin");
+    window.location.replace("http://asteri.in.ua/#/admin");
 </script>

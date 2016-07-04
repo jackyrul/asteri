@@ -3,65 +3,138 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>О Нас</h5>
+                    <h5>Номера</h5><button class="btn btn-sm btn-primary pull-right" ng-click="add()" type="submit">Добавить новый номер</button>
                     <div class="ibox-content">
                         <form class="form-horizontal ng-pristine ng-valid">
                             <div data-ng-repeat="price in main.pricing">
 
-                            <div class="form-group"><label class="col-lg-2 control-label">Название</label>
+                            <div class="form-group"><label class="col-lg-2 control-label"><h2 style="display: initial;">{{$index +1}}.</h2>  Название</label>
 
                                 <div class="col-lg-10">
                                     <input type="text" ng-model="price.name" placeholder="введите название" class="form-control">
 
                                 </div>
                             </div>
+                            <div class="form-group"><label class="col-lg-2 control-label">Показывать номер на сайте</label>
+
+                                    <div class="col-lg-10">
+                                        <input icheck type="checkbox" ng-model="price.isShow" />
+                                    </div>
+                            </div>
                             <div class="form-group"><label class="col-lg-2 control-label">Цена</label>
 
                                 <div class="col-lg-10"><input type="text" ng-model="price.price" placeholder="введите цену" class="form-control">
                                 </div>
                             </div>
-                            <div class="form-group"><label class="col-lg-2 control-label">Поле 1</label>
+                                <div class="form-group"><label class="col-lg-2 control-label">Опция</label>
 
-                                <div class="col-lg-10">
-                                    <input type="text" ng-model="price.items[0]" placeholder="введите поле(может быть пустым)" class="form-control">
+                                    <div class="col-lg-10">
+                                        <input type="text" ng-model="price.option" placeholder="введите поле" class="form-control">
+
+                                    </div>
+                                </div>
+                            <div class="form-group"><label class="col-lg-2 control-label">Удобства</label>
+                                <div class="col-sm-10">
+                                    <label class="checkbox-inline"><input icheck type="checkbox" ng-model="price.facilities[0]" /><i class="fa fa-wifi"></i> </label>
+                                    <label class="checkbox-inline"><input icheck type="checkbox" ng-model="price.facilities[1]" /><i class="fa fa-television"></i></label>
+                                    <label class="checkbox-inline"><input icheck type="checkbox" ng-model="price.facilities[2]" /><i class="fa fa-bed"></i></label>
+                                    <!--<label class="checkbox-inline"><input icheck type="checkbox" ng-model="price.facilities[3]" /><i class="fa fa-wifi"></i></label>-->
+                                    <!--<label class="checkbox-inline"><input icheck type="checkbox" ng-model="price.facilities[4]" /><i class="fa fa-wifi"></i></label>-->
+                                    <!--<label class="checkbox-inline"><input icheck type="checkbox" ng-model="price.facilities[5]" /><i class="fa fa-wifi"></i></label>-->
+                                    </div>
+                                <!--<div class="col-lg-10">-->
+                                    <!--<input type="text" ng-model="price.facilities" placeholder="введите поле" class="form-control">-->
+
+                                <!--</div>-->
+                            </div>
+                                <div class="form-group"><label class="col-lg-2 control-label" style="padding-right: 24px;">Описание</label>
+                                    <!--margin-left: -10px;padding-right: 24px; */-->
+                                    <div class="col-lg-10">
+                                         <textarea id="TextArea" style="margin-left: -10px;width: 80%;height:auto;-webkit-transition: height 2s ease;-moz-transition: height 2s ease;-ms-transition: height 2s ease;-o-transition: height 2s ease;
+                                transition: height 2s ease;" ng-keyup="autoExpand($event)" ng-model="price.description"></textarea>
+                                        <!--<input type="text"  ng-model="item.text" placeholder="введите  текст" class="form-control  m-b">-->
+
+                                    </div>
+                                </div>
+                            <div class="form-group"><label class="col-lg-2 control-label">Лицевое фото</label>
+                                <div class="col-lg-3">
+                                    <div class="dropzone ng-pristine ng-valid dz-clickable" dropzone="dropzoneConfig" id="{{'dropzone'+$index}}">
+                                        <div class="dz-message m-t-lg m-b-lg">
+                                            <h1 class="dz-message m-t-lg m-b-lg">Переместите одно фото или нажмите для добавления</h1>
+                                            <!--<span>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <img class="imglook" ng-src="{{price.src_logo }}">
+                                </div>
+                                <div class="col-lg-4">
+                                    <button style="margin-top: 10px;" ng-click="uploadImg($index, price.src_logo,true,'-1')" class="btn btn-sm btn-primary">Сохранить/Заменить</button>
+                                </div>
+
+
+                            </div>
+
+
+                                <div class="form-group"><label class="col-lg-2 control-label">Все фото</label>
+                                    <div class="col-lg-10">
+                                    <div class="col-lg-3">
+                                        <div class="dropzone ng-pristine ng-valid dz-clickable" dropzone="dropzoneConfig" id="{{'dropzone'+$index+0}}">
+                                            <div class="dz-message">
+                                                <h2 class="dz-message">Переместите одно фото или нажмите для добавления</h2>
+                                                <!--<span>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>-->
+                                            </div>
+                                        </div>
+                                        <img class="imglook" ng-src="{{price.src_all[0] }}">
+                                        <button style="margin-top: 10px;" ng-click="uploadImg($index, price.src_all[0], false, 0)" class="btn btn-sm btn-primary">Сохранить/Заменить</button>
+
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="dropzone ng-pristine ng-valid dz-clickable" dropzone="dropzoneConfig" id="{{'dropzone'+$index+1}}">
+                                            <div class="dz-message">
+                                                <h2 class="dz-message ">Переместите одно фото или нажмите для добавления</h2>
+                                                <!--<span>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>-->
+                                            </div>
+                                        </div>
+                                        <img class="imglook" ng-src="{{price.src_all[1] }}">
+                                        <button style="margin-top: 10px;" ng-click="uploadImg($index, price.src_all[1], false, 1)" class="btn btn-sm btn-primary">Сохранить/Заменить</button>
+
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="dropzone ng-pristine ng-valid dz-clickable" dropzone="dropzoneConfig" id="{{'dropzone'+$index+2}}">
+                                            <div class="dz-message ">
+                                                <h2 class="dz-message">Переместите одно фото или нажмите для добавления</h2>
+                                                <!--<span>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>-->
+                                            </div>
+                                        </div>
+                                        <img class="imglook" ng-src="{{price.src_all[2] }}">
+                                        <button style="margin-top: 10px;" ng-click="uploadImg($index, price.src_all[2], false, 2)" class="btn btn-sm btn-primary">Сохранить/Заменить</button>
+
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="dropzone ng-pristine ng-valid dz-clickable" dropzone="dropzoneConfig" id="{{'dropzone'+$index+3}}">
+                                            <div class="dz-message">
+                                                <h2 class="dz-message">Переместите одно фото или нажмите для добавления</h2>
+                                                <!--<span>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>-->
+                                            </div>
+                                        </div>
+                                        <img class="imglook" ng-src="{{price.src_all[3] }}">
+                                        <button style="margin-top: 10px;" ng-click="uploadImg($index, price.src_all[3]), false, 3" class="btn btn-sm btn-primary">Сохранить/Заменить</button>
+
+                                    </div>
+                                    </div>
+                                    <!--<div class="col-lg-3">-->
+                                        <!--<img class="imglook" ng-src="{{price.src_logo }}">-->
+                                    <!--</div>-->
+                                    <!--<div class="col-lg-4">-->
+                                        <!--<button style="margin-top: 10px;" ng-click="uploadImg($index, price.src_logo)" class="btn btn-sm btn-primary">Сохранить/Заменить</button>-->
+                                    <!--</div>-->
+
 
                                 </div>
-                            </div>
-                            <div class="form-group"><label class="col-lg-2 control-label">Поле 2</label>
 
-                                <div class="col-lg-10">
-                                    <input type="text" ng-model="price.items[1]" placeholder="введите поле(может быть пустым)" class="form-control">
-
-                                </div>
-                            </div>
-                            <div class="form-group"><label class="col-lg-2 control-label">Поле 3</label>
-
-                                <div class="col-lg-10">
-                                    <input type="text" ng-model="price.items[2]" placeholder="введите поле(может быть пустым)" class="form-control">
-
-                                </div>
-                            </div>
-                            <div class="form-group"><label class="col-lg-2 control-label">Поле 4</label>
-
-                                <div class="col-lg-10">
-                                    <input type="text" ng-model="price.items[3]" placeholder="введите поле(может быть пустым)" class="form-control">
-
-                                </div>
-                            </div>
-                            <div class="form-group"><label class="col-lg-2 control-label">Поле 5</label>
-
-                                <div class="col-lg-10">
-                                    <input type="text" ng-model="price.items[4]" placeholder="введите поле(может быть пустым)" class="form-control">
-
-                                </div>
-                            </div>
-                            <div class="form-group"><label class="col-lg-2 control-label">Поле 6</label>
-
-                                <div class="col-lg-10">
-                                    <input type="text" ng-model="price.items[5]" placeholder="введите поле(может быть пустым)" class="form-control">
-
-                                </div>
-                            </div>
+                                <div ng-repeat-end class="hr-line-dashed"></div>
                             </div>
 
 

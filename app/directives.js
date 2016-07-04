@@ -38,40 +38,40 @@
         //#main-slider
         $(function(){
             $('#main-slider.carousel').carousel({
-                interval: 8000
+                interval: 1000
             });
         });
 
 
-        // accordian
-        $('.accordion-toggle').on('click', function(){
-            $(this).closest('.panel-group').children().each(function(){
-                $(this).find('>.panel-heading').removeClass('active');
-            });
-
-            $(this).closest('.panel-heading').toggleClass('active');
-        });
+        //// accordian
+        //$('.accordion-toggle').on('click', function(){
+        //    $(this).closest('.panel-group').children().each(function(){
+        //        $(this).find('>.panel-heading').removeClass('active');
+        //    });
+        //
+        //    $(this).closest('.panel-heading').toggleClass('active');
+        //});
 
         //Initiat WOW JS
         new WOW().init();
 
         // portfolio filter
-        $(window).load(function(){'use strict';
-            var $portfolio_selectors = $('.portfolio-filter >li>a');
-            var $portfolio = $('.portfolio-items');
-            $portfolio.isotope({
-                itemSelector : '.portfolio-item',
-                layoutMode : 'fitRows'
-            });
-
-            $portfolio_selectors.on('click', function(){
-                $portfolio_selectors.removeClass('active');
-                $(this).addClass('active');
-                var selector = $(this).attr('data-filter');
-                $portfolio.isotope({ filter: selector });
-                return false;
-            });
-        });
+        //$(window).load(function(){'use strict';
+        //    var $portfolio_selectors = $('.portfolio-filter >li>a');
+        //    var $portfolio = $('.portfolio-items');
+        //    $portfolio.isotope({
+        //        itemSelector : '.portfolio-item',
+        //        layoutMode : 'fitRows'
+        //    });
+        //
+        //    $portfolio_selectors.on('click', function(){
+        //        $portfolio_selectors.removeClass('active');
+        //        $(this).addClass('active');
+        //        var selector = $(this).attr('data-filter');
+        //        $portfolio.isotope({ filter: selector });
+        //        return false;
+        //    });
+        //});
 
         // Contact form
         //var form = $('#main-contact-form');
@@ -104,10 +104,10 @@
         });
     };
 
-    var promo = function(){
-        $(".fullscreen-static-image").backstretch(["assets/img-temp/promo/img1.jpg", "assets/img-temp/promo/img2.jpg"],
-            {duration: 5000, fade:1500});
-    };
+    //var promo = function(){
+    //    $(".fullscreen-static-image").backstretch(["assets/img-temp/promo/img1.jpg", "assets/img-temp/promo/img2.jpg"],
+    //        {duration: 5000, fade:1500});
+    //};
     function handleEqualHeightColumns() {
         var EqualHeightColumns = function () {
             $('.equal-height-columns').each(function() {
@@ -152,64 +152,37 @@
         });
     };
 
-    var handleFullscreen = function() {
-        var WindowHeight = $(window).height();
-        var HeaderHeight = 0;
+    //var handleFullscreen = function() {
+    //    var WindowHeight = $(window).height();
+    //    var HeaderHeight = 0;
+    //
+    //    if ($(document.body).hasClass('promo-padding-top')) {
+    //        HeaderHeight = $('.header').height();
+    //    } else {
+    //        HeaderHeight = 0;
+    //    }
+    //
+    //    $('.fullheight').css('height', WindowHeight - HeaderHeight);
+    //
+    //    $(window).resize(function() {
+    //        var WindowHeight = $(window).height();
+    //        $('.fullheight').css('height', WindowHeight - HeaderHeight);
+    //    });
+    //}
+    //
+    //var handleValignMiddle = function() {
+    //    $(document).ready(function() {
+    //        $('.valign__middle').each(function() {
+    //            $(this).css('padding-top', $(this).parent().height() / 2 - $(this).height() / 2);
+    //        });
+    //    });
+    //    $(window).resize(function() {
+    //        $('.valign__middle').each(function() {
+    //            $(this).css('padding-top', $(this).parent().height() / 2 - $(this).height() / 2);
+    //        });
+    //    });
+    //}
 
-        if ($(document.body).hasClass('promo-padding-top')) {
-            HeaderHeight = $('.header').height();
-        } else {
-            HeaderHeight = 0;
-        }
-
-        $('.fullheight').css('height', WindowHeight - HeaderHeight);
-
-        $(window).resize(function() {
-            var WindowHeight = $(window).height();
-            $('.fullheight').css('height', WindowHeight - HeaderHeight);
-        });
-    }
-
-    var handleValignMiddle = function() {
-        $(document).ready(function() {
-            $('.valign__middle').each(function() {
-                $(this).css('padding-top', $(this).parent().height() / 2 - $(this).height() / 2);
-            });
-        });
-        $(window).resize(function() {
-            $('.valign__middle').each(function() {
-                $(this).css('padding-top', $(this).parent().height() / 2 - $(this).height() / 2);
-            });
-        });
-    }
-
-    var createmap = function() {
-        var map;
-
-        map = new GMaps({
-            el: '#gmap',
-            lat: 46.7335807,
-            lng: 36.8089835,
-            //scrollwheel:false,
-            zoom: 15,
-            zoomControl : false,
-            panControl : false,
-            streetViewControl : false,
-            mapTypeControl: false,
-            overviewMapControl: false,
-            //clickable: false
-        });
-
-        map.addMarker({
-            lat: 46.735260,//46.7335807,
-            lng: 36.809179,//36.8089835,
-            animation: google.maps.Animation.DROP,
-            verticalAlign: 'bottom',
-            horizontalAlign: 'center',
-            backgroundColor: '#3e8bff',
-
-        });
-    }
 
 
 })();

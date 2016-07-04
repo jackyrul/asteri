@@ -10,8 +10,8 @@
 function MainCtrl() {
 
     this.userName = 'User';
-    this.helloText = 'Welcome in resortadmin';
-    this.descriptionText = 'resortadmin';
+    this.helloText = 'Welcome in admin';
+    this.descriptionText = 'admin';
 
 };
 

@@ -30,7 +30,7 @@
 <body class="homepage">
 
     <header id="header">
-        <nav class="navbar navbar-inverse" role="banner">
+        <nav class="navbar navbar-inverse" role="banner" style="z-index: 33333;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,8 +41,8 @@
                     </button>
                     <a class="navbar-brand" ui-sref="main"><img src="images/logo.png" class="logo" alt="logo"></a>
                 </div>
-				
-                <div class="collapse navbar-collapse navbar-right">
+
+                <div class="collapse navbar-collapse navbar-right" style="z-index: 33333;">
                     <ul class="nav navbar-nav">
                         <li ui-sref-active="active">
                             <a ui-sref="main">Главная</a>
@@ -100,14 +100,12 @@
 
              <!-- common Modules -->
     <script src="app/common/common.js"></script>
-             <!--<script src="app/common/logger.js"></script>-->
-             <!--<script src="app/common/spinner.js"></script>-->
-             <!---->
+
+
     <script src="app/main/main.js"></script>
     <script src="app/contact/contact.js"></script>
-
-             <!--Calculators-->
     <script src="app/rooms/rooms.js"></script>
+    <script src="app/admin/admin.js"></script>
     <!--<script src="app/salarydividends/salaryvsdividends.js"></script>-->
     <!--<script src="app/vat/vat.js"></script>-->
     <script src="app/services/dataprovider.js"></script>

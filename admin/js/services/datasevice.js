@@ -15,15 +15,16 @@
         .module('admin')
         .factory('dataservice', dataservice);
 
-    dataservice.$inject = ['$http', '$q', 'common', 'dataProvider', '$filter'];
+    dataservice.$inject = ['$http', '$q', 'common', 'dataProvider', '$filter', 'Upload', '$timeout'];
     /* @ngInject */
 
 
-    function dataservice($http, $q, common, dataProvider, $filter) {
+    function dataservice($http, $q, common, dataProvider, $filter, Upload, $timeout) {
         var logger = common.logger.getLogFn('dataservice');
         var service = {
             getData: getData,
             saveData: saveData,
+            upload: upload,
             createGuid: createGuid
         };
 
@@ -68,6 +69,61 @@
 
             function fail(e) {
             }
+        }
+
+        function upload(img, src, oldimg) {
+
+            //$scope.f = img;
+            //$scope.errFile = errFiles && errFiles[0];
+            //if (img) {
+            //    Upload.upload({
+            //        url: '/Asteri/data/db/upload.php',
+            //        data: {
+            //            src: src,
+            //            oldimg:oldimg,
+            //            file: img
+            //        }
+            //    }).then(function (response) {
+            //        $timeout(function () {
+            //            img.result = response.data;
+            //        });
+            //    }, function (response) {
+            //        if (response.status > 0)
+            //            logger(response.status + ': ' + response.data);
+            //            //$scope.errorMsg = response.status + ': ' + response.data;
+            //    }, function (evt) {
+            //        //logger('Сохранено!');
+            //        //img.progress = Math.min(100, parseInt(100.0 *
+            //        //    evt.loaded / evt.total));
+            //    });
+            //}
+
+            if (img) {
+                Upload.upload({
+                    url: '/Asteri/data/db/upload.php',
+                    data: {
+                        src: src,
+                        oldimg:oldimg,
+                        file: img
+                    }
+                }).success(function(data, status, headers, config) {
+                    logger(data);
+                }).error(function(data, status) {
+                    logger(data);
+                });
+            }
+            //var sc = {};
+            //return dataProvider.post(sc, '/Asteri/data/db/upload.php', {
+            //    src: src,
+            //    img: img,
+            //    oldimg: oldimg
+            //}, function(data, status) {
+            //    if(status=="200")
+            //        logger('Сохранено!');
+            //});
+            //function fail(e) {
+            //    logger('Ошибка');
+            //}
         }
 
         function createGuid() {

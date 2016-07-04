@@ -9,6 +9,8 @@
         'oc.lazyLoad',                  // ocLazyLoad
         'ui.bootstrap',                 // Ui Bootstrap
         'common',
+        'dropzone',
+        'ngFileUpload',
     ])
 })();
 

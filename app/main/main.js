@@ -20,10 +20,10 @@
         m.slider =[1,2,3]
 
         datacontext.getData(id).then(function (data) {
-            $scope.main = JSON.parse(data.data);
-            $scope.main.about.mainimg  = $scope.main.about.mainimg.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/');
-            $scope.main.about.textimg  = $scope.main.about.textimg.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/');
-            $scope.main.about.maintext = $scope.main.about.maintext.split(/\n/);
+            m.data = JSON.parse(data.data);
+            //$scope.main.about.mainimg  = $scope.main.about.mainimg.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/');
+            //$scope.main.about.textimg  = $scope.main.about.textimg.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/');
+            m.data.about.maintext = m.data.about.maintext.split(/\n/);
             //$scope.$storage = $scope.$storage.$default({
             //    main: $scope.main
             //});
@@ -31,10 +31,10 @@
 
         });
 
-        $scope.typeCalculator = function(type){
-            //dataservice.getCalculator().setGroup(type);
-            $state.go(type);
-        }
+        //$scope.typeCalculator = function(type){
+        //    //dataservice.getCalculator().setGroup(type);
+        //    $state.go(type);
+        //}
 
         activate();
 

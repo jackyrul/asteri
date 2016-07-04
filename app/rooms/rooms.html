@@ -10,34 +10,34 @@
 
   <div class="row clearfix">
 
-   <div class="col-md-6 col-sm-6 " data-ng-repeat="room in master.rooms">
+   <div class="col-md-6 col-sm-6 " data-ng-repeat="room in master.data.pricing" ng-show="{{room.isShow}}">
     <div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
      <div class="media">
       <div class="pull-right">
        <ul class="tag clearfix">
-        <li class="btn details"><a ng-click="details($index)" href="">Подробнее</a></li>
+        <li class="btn details" ng-click="details($index)"><a  href="">Подробнее</a></li>
        </ul>
-       <h2 class="prize">Цена / за ночь:</h2>
-       <h2 class="prise">$250</h2>
+       <h2 class="prize">Цена / {{room.option}}:</h2>
+       <h2 class="prise">{{room.price}}</h2>
        <p></p>
       </div>
       <div class="media-body">
-       <h4>СуперЛюкс-стандарт</h4>
+       <h4>{{room.name}}</h4>
       </div>
       <div class="pull-left">
-       <a href="#"><img class="media-object" src="images/man1.jpg" alt=""></a>
+       <a href="#"><img class="media-object" style="max-width: 200px;" ng-src="{{room.src_logo}}" alt=""></a>
       </div>
 
 
       <div class="media-body">
        <ul class="app_icons">
-        <li><a href=""><i class="fa fa-wifi"></i></i></a></li>
-        <li><a href=""><i class="fa fa-beer"></i></a></li>
-        <li><a href=""><i class="fa fa-bed"></i></a></li>
+        <li ng-show="{{room.facilities[0]}}"><a href=""><i class="fa fa-wifi"></i></a></li>
+        <li ng-show="{{room.facilities[1]}}"><a href=""><i class="fa fa-television"></i></a></li>
+        <li ng-show="{{room.facilities[2]}}"><a href=""><i class="fa fa-bed"></i></a></li>
        </ul>
       </div>
      </div><!--/.media -->
-     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+     <p>{{room.description}}</p>
     </div>
    </div><!--/.col-lg-4 -->
 

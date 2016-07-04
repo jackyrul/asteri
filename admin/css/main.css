@@ -71,8 +71,31 @@
     margin-top: 12px;
 }
 .imglook{
-    height: 100px;
+    height: 130px;
 }
 .photoindex{
 font-size: 20px;
+}
+
+.dropzone {
+    border: 2px dashed #1ab394 !important;
+    padding: 0px 20px !important;
+}
+
+ .checkbox-inline  {
+    padding-top: 0px!important;
+    margin-top: -6px!important;
+}
+
+.checkbox-inline i  {
+    font-size: 20px;
+    /* margin-top: 10px; */
+    padding-top: 10px;
+    padding-left: 3px;
+    /* margin-right: 10px; */
+    position: absolute;
+}
+.icheckbox_square-green, .iradio_square-green {
+    margin-top: 12px;
+    margin-right: 5px;
 }

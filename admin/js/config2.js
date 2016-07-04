@@ -1,9 +1,9 @@
 /// <reference path="../views/clusters/clusters.html" />
 /**
- * avalanchain - Responsive Admin Theme
+ * admin - Responsive Admin Theme
  * Copyright 2015 Webapplayers.com
  *
- * avalanchain theme use AngularUI Router to manage routing and views
+ * admin theme use AngularUI Router to manage routing and views
  * Each view are defined as state.
  * Initial there are written state for all view in theme.
  *

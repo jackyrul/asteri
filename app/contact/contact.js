@@ -11,6 +11,7 @@
             $rootScope.pageTitle = 'Контакты';
             $scope.master = {};
             var m = $scope.master;
+            var id = "common";
 
             m.title = 'Наши контакты';
             m.text = 'Свяжитесь с нами!';
@@ -18,16 +19,11 @@
             m.tel2 = '670-898-2847 '
             m.addr = 'улица Чубаря 7,'
             m.contacttext = 'Ждем Вас у нас, Ждем Вас у нас, Ждем Вас у нас!!!'
-            $scope.manual = {
-                salary:8000,
-                dividends:20000,
-                totalIncome: 0,
-                taxCode:'1100L',
-                persAllowance:0,
-                taxableSalary:0,
-                is3000Pounds: true,
-                isCorporationTax: true
-            };
+            datacontext.getData(id).then(function (data) {
+                m.data = JSON.parse(data.data);
+
+
+            });
 
 
 

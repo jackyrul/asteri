@@ -10,18 +10,28 @@
 
         $rootScope.pageTitle = 'Номера';
         $scope.master = {};
+        var id = 'pricing';
         var m = $scope.master;
 
         m.title = 'Номера';
         m.isRoom = false;
 
-        m.rooms = [1,2,3,4];
+        //m.rooms = [1,2,3,4];
+
+        datacontext.getData(id).then(function (data) {
+            m.data = JSON.parse(data.data);
+            //$scope.main.about.mainimg  = $scope.main.about.mainimg.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/');
+            //$scope.main.about.textimg  = $scope.main.about.textimg.replace('https://www.dropbox.com/', 'https://dl.dropboxusercontent.com/');
+            //m.data.about.maintext = m.data.about.maintext.split(/\n/);
+            //$scope.$storage = $scope.$storage.$default({
+            //    main: $scope.main
+            //});
+            //$scope.$storage.main = $scope.main;
+
+        });
 
         $scope.details = function (room) {
-            $scope.current={
-                title:'СУПЕРЛЮКС-СТАНДАРТ',
-                id:room
-            };
+            $scope.current= m.data.pricing[room];
             m.isRoom = ! m.isRoom;
             carousel();
         };

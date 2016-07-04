@@ -23,11 +23,13 @@ else{
     <title page-title></title>
 
     <!-- Font awesome -->
-    <link href="/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- Bootstrap and Fonts -->
     <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
     <link href="/admin/js/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="/admin/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="/admin/css/plugins/dropzone/basic.css" rel="stylesheet">
 
     <link href="/admin/css/plugins/iCheck/custom.css" rel="stylesheet" />
     <!-- Main avalanchain CSS files -->
@@ -59,7 +61,9 @@ else{
 <script src="/admin/js/plugins/pace/pace.min.js"></script>
 <script src="/admin/js/plugins/toastr/toastr.min.js"></script>
 
-<script src="/admin/js/plugins/iCheck/icheck.min.js" />
+<script src="/admin/js/plugins/iCheck/icheck.min.js" ></script>
+<script src="/admin/js/plugins/dropzone/dropzone.js"></script>
+
 
 <!-- Custom and plugin javascript -->
 <script src="/admin/js/resortadmin.js"></script>
@@ -70,6 +74,8 @@ else{
 <script src="/admin/js/ui-router/angular-ui-router.min.js"></script>
 <script src="/admin/js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
 
+<script src="/admin/js/angular/ng-file-upload-all.min.js"></script>
+<script src="/admin/js/angular/dropzone-directive.js"></script>
 
 <!-- Anglar App Script -->
 <script src="/admin/js/app.js"></script>

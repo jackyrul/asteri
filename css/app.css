@@ -1,10 +1,10 @@
 .request h4:after {
-    right: 17px;
+    right: 19px;
 }
 
 
 .request h4:before {
-    left: 17px;
+    left: 19px;
 }
 
 #feature .request {
@@ -219,6 +219,26 @@ ul.app_icons li a i {
 .logo{
     width: 80%;
 }
+
+
+
+#main-slider .carousel .item {
+    height: inherit;
+}
+
+#main-slider{
+    padding:0;
+}
+/*(min-width: 992px) and*/
+@media  (max-width: 500px) {
+
+    #main-slider{
+        padding-top: 70px;
+        padding-bottom: 0
+    }
+
+}
+
 
 
 

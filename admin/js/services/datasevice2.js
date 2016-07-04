@@ -15,15 +15,16 @@
         .module('admin')
         .factory('dataservice', dataservice);
 
-    dataservice.$inject = ['$http', '$q', 'common', 'dataProvider', '$filter'];
+    dataservice.$inject = ['$http', '$q', 'common', 'dataProvider', '$filter', 'Upload', '$timeout'];
     /* @ngInject */
 
 
-    function dataservice($http, $q, common, dataProvider, $filter) {
+    function dataservice($http, $q, common, dataProvider, $filter, Upload, $timeout) {
         var logger = common.logger.getLogFn('dataservice');
         var service = {
             getData: getData,
             saveData: saveData,
+            upload: upload,
             createGuid: createGuid
         };
 
@@ -70,6 +71,52 @@
             function fail(e) {
             }
         }
+
+        function upload(img, src, oldimg, id) {
+                return  Upload.upload({
+                    url: '/data/db/upload.php',
+                    data: {
+                        src: src,
+                        oldimg:oldimg,
+                        file: img,
+                        id: id
+                    }
+                }).success(function(data, status, headers, config) {
+                    logger(data);
+                }).error(function(data, status) {
+                    logger(data);
+                });
+            }
+
+            //var sc = {};
+            //return dataProvider.post(sc, '/Asteri/data/db/upload.php', {
+            //    src: src,
+            //    img: img,
+            //    oldimg: oldimg
+            //}, function(data, status) {
+            //    if(status=="200")
+            //        logger('Сохранено!');
+            //});
+            //function fail(e) {
+            //    logger('Ошибка');
+            //}
+
+
+
+        //function upload(img, src, oldimg) {
+        //    var sc = {};
+        //    return dataProvider.post(sc, '/data/db/upload.php', {
+        //        action: action,
+        //        img: img,
+        //        oldimg: oldimg
+        //    }, function(data, status) {
+        //        if(status=="200")
+        //            logger('Сохранено!');
+        //    });
+        //    function fail(e) {
+        //        logger('Ошибка');
+        //    }
+        //}
 
         function createGuid() {
             // http://www.ietf.org/rfc/rfc4122.txt
